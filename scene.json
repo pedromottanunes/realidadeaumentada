@@ -1,0 +1,20 @@
+```json
+{
+  "sceneName": "BiomaAmazonia",
+  "spawnPoints": [
+    { "id": "rio",   "position": [0, 0, 0],   "model": "RiverPrefab" },
+    { "id": "árvore","position": [2, 0, 1],   "model": "TreePrefab" }
+  ],
+  "narrativeSteps": [
+    {
+      "spawnId": "árvore",
+      "text": "Esta é a castanheira, típica da floresta tropical brasileira.",
+      "quiz": {
+        "question": "Qual fruto é produzido por essa árvore?",
+        "options": ["Caju", "Castanha-do-Pará", "Açaí"],
+        "answer": 1
+      }
+    }
+  ]
+}
+```
