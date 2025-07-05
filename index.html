@@ -13,17 +13,22 @@
   <a-scene
     embedded
     arjs='sourceType: webcam; debugUIEnabled: false; userMediaConstraints: { video: { facingMode: "environment" }, audio: false }'>
-    <a-entity id="dynamic-scene"></a-entity>
+
+    <!-- Você precisa do marker de referência (preset Hiro) para posicionar seu conteúdo -->
+    <a-marker preset="hiro">
+      <a-entity id="dynamic-scene"></a-entity>
+    </a-marker>
+
+    <!-- Câmera necessária para AR.js -->
+    <a-entity camera></a-entity>
   </a-scene>
 
   <script>
-    // Busca e aplica configuração do JSON
     fetch('scene.json')
       .then(res => res.json())
       .then(cfg => {
         const parent = document.getElementById('dynamic-scene');
 
-        // Adiciona cada spawnPoint como modelo GLTF
         cfg.spawnPoints.forEach(pt => {
           const el = document.createElement('a-entity');
           el.setAttribute('gltf-model', `url(models/${pt.model}.glb)`);
@@ -31,13 +36,12 @@
           parent.appendChild(el);
         });
 
-        // Insere narrativas e quizzes
         cfg.narrativeSteps.forEach(step => {
           const textEl = document.createElement('a-entity');
           textEl.setAttribute('text', `value: ${step.text}; align: center; width: 2`);
+          // posiciona o texto acima do modelo
           textEl.setAttribute('position', '0 1.5 0');
           parent.appendChild(textEl);
-          // Aqui você pode implementar a lógica de quiz via JavaScript
         });
       });
   </script>
