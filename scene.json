@@ -13,7 +13,11 @@
       "text": "Esta é a castanheira, típica da floresta tropical brasileira.",
       "quiz": {
         "question": "Qual fruto é produzido por essa árvore?",
-        "options": ["Caju", "Castanha-do-Pará", "Açaí"],
+        "options": [
+          "Caju",
+          "Castanha-do-Pará",
+          "Açaí"
+        ],
         "answer": 1
       }
     }
